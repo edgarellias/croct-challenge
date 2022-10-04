@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from "styled-components"
-
+import { ReactComponent as Vector } from "../assets/icons/Vector.svg"
 export interface IAppProps {
 
 }
@@ -10,7 +10,10 @@ export default class App extends React.Component<IAppProps> {
         return (
             <Container>
                 <label>
-                    <input type="file"/>
+
+                    <p><Vector /> Organization Logo</p>
+                    <p>Drop the image here or click to browse</p>
+                    <input type="file" />
                 </label>
             </Container>
         );
@@ -18,15 +21,28 @@ export default class App extends React.Component<IAppProps> {
 }
 
 const Container = styled.div`
-    >label {
-        > input {
-            content: "Organization Logo";
-        width: 553px;
-        height: 177px;
-        border-radius: 8px;
-        border: 2px dashed #C7CDD3;
-        background-color: #e5e5e5;
-
-}
-}
+        padding-top: 142px;
+        >label {
+            text-align: center;
+            cursor: pointer;
+        > p {
+            display: flex;
+            align-items: center;
+            gap: 12.01px;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 25.2px;
+            color: #495567;
+            > svg {
+                width: 16px;
+                height: 16px;
+            }
+            :nth-child(2) {
+                font-weight: 400;
+            }
+        }
+        >input[type="file"] {
+            display: none;
+        }
+    }      
 `
