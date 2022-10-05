@@ -1,25 +1,38 @@
 import * as React from 'react';
 import styled from "styled-components"
+
 import { ReactComponent as Close } from "../assets/icons/Close.svg"
 import { ReactComponent as Circle } from "../assets/icons/Circle.svg"
+import { ReactComponent as Exclamation } from "../assets/icons/Exclamation.svg";
 
 export interface IAppProps {
 }
 
 export default class App extends React.Component<IAppProps> {
     public render() {
+
+        const saveImage = false;
+
         return (
             <Container>
                 <label>
-                    <div>
-                        <Circle />
-                    </div>
-                    <Close />
-                    <section>
-                        <p>Sorry, the upload failed</p>
-                        <p>Try again</p>
-                        <input type="file" />
-                    </section>
+                    {saveImage ?
+                        ""
+                        : <>
+                            <div>
+                                <Circle />
+                                <p><Exclamation /> </p>
+                            </div>
+
+                            <Close />
+                            
+                            <section>
+                                <p>Sorry, the upload failed</p>
+                                <p>Try again</p>
+                                <input type="file" />
+                            </section>
+                        </>}
+
                 </label>
             </Container>
         );
@@ -34,6 +47,12 @@ const Container = styled.div`
         > div {
             > svg {
                 margin: 32px;
+            }
+            > p {
+                position: absolute;
+                top: 400px;
+                right: 1245px;
+                color: #333;
             }
         }
         > section {

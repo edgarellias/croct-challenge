@@ -7,10 +7,12 @@ export interface IAppProps {
 
 export default class App extends React.Component<IAppProps> {
     public render() {
+
+        const saveImage = true;
+
         return (
             <Container>
                 <label>
-
                     <p><Vector /> Organization Logo</p>
                     <p>Drop the image here or click to browse</p>
                     <input type="file" />
